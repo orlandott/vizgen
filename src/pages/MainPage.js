@@ -370,9 +370,9 @@ export default class MainPage extends Component {
 
         html2canvas(document.querySelector("#fullLable")).then(canvas => {
           //  document.body.appendChild(canvas);  // if you want see your screenshot in body.
-           const imgData = canvas.toDataURL('image/png');
+           const imgData = canvas.toDataURL('image/jpeg',1.0);
            const pdf = new jsPDF();
-           pdf.addImage(imgData, 'PNG', 0, 0);
+           pdf.addImage(imgData, 'JPEG', 0, 0,210,200,'a','SLOW');
            pdf.save("download.pdf"); 
        });
    
@@ -416,7 +416,7 @@ export default class MainPage extends Component {
                                 color: `${this.state.titleColor}`,
                                 fontSize: `${this.state.titleSize}px`,
                                 textAlign: 'center',
-                                lineHeight:'2.5rem',
+                                lineHeight:'90%',
                                 marginTop:`${this.state.titleMargin}px`
                               }
                               }>{this.state.title}</p>
